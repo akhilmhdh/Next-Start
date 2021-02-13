@@ -1,6 +1,6 @@
-import Head from "next/head";
+import Head from 'next/head';
 
-export default function Home() {
+const Home = (): JSX.Element => {
     return (
         <div>
             <Head>
@@ -10,4 +10,6 @@ export default function Home() {
             <div>Hello</div>
         </div>
     );
-}
+};
+
+export default Home;
