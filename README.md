@@ -1,34 +1,74 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p align="center">
+    <h2 align="center">Next-Start</h3>
+</p>
+
+Next-Start is a starting kit for Next.js with linting, prettier, husky and basic hooks.
+It doesn't have UI libraries added to it. But Soon :smile: a plug and play version using github.
+Maintained by [akhilmhdh](https://github.com/akhilmhdh)
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
-npm run dev
-# or
-yarn dev
+ git clone -b main --single-branch <url> --depth 1
+ cd
+ yarn install
+ yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Libraries
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+1. [NextJS](https://nextjs.org): Main Framework
+2. [Axios](https://github.com/axios/axios): HTTP API Client Library
+3. [SWR](https://swr.vercel.app): Data Fetching Library
+4. [React Hook Form](https://react-hook-form.com) & [@hookform/resolvers](https://github.com/react-hook-form/resolvers): Form handling
+5. [Yup](https://github.com/jquense/yup): Form validation
+6. [Eslint](https://eslint.org) & [Prettier](https://prettier.io/): Linting
+7. [Husky](https://github.com/typicode/husky) & [Lint-Staged](https://github.com/okonet/lint-staged): Formating
+8. [Camelcase-keys](https://github.com/sindresorhus/camelcase-keys) & [Snakecase-keys](https://github.com/bendrucker/snakecase-keys): Interceptors converters for other stack backend
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## File Structure
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```bash
+./src
+|-- api - API sets for all backend operations
+|-- components - Reusable UI components like Textfield, Modal
+|-- containers - Shared components
+|-- config - Configurations eg: request config
+|-- const - All constants eg: localstorage keys
+|-- context - Global Context
+|   |-- AuthContext - Authentication provider for access control
+|   |-- ThemeContext - Theme provider acting as centralized theme store
+|-- hooks - Global Hooks
+|   |-- useFetch - SWR wrapper hook for better fetching
+|   |-- usePopUp - PopUp, Modal controller hook
+|   |-- useTimeoutState - A timeout state hook
+|-- layouts - General layouts of the app
+|-- pages - NEXTJS pages folder (See the doc)
+|-- styles - Global Styles
+|-- types - Global Types
+|-- utils - Utility function
+|-- views - Page views corresponding to pages
+|   |-- HompageView - Page view for homepage
+|   |   |-- Components - Components specific to this page
+|   |   |-- Homepage.tsx - Main file
+|   |   |-- Homepage.helper.ts - Helper functions for the Homepage
+|   |   |-- Homepage.template.ts - Template function for rendering list of items etc
+|   |   |-- Homepage.test.tsx - Test File
+|   |   |-- index.tsx - Entry point
+```
 
-## Learn More
+## Some tips
 
-To learn more about Next.js, take a look at the following resources:
+1. Use PascalCase for React based components
+2. Use camelCase for everything else.
+3. Use index.tsx for entry point, with only export
+4. Use component name for main file
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```typescript
+// index.ts
+export { Textfield } from './Textfield.tsx';
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+5. Avoid default export, use named-export only
+6. Use one UI library and follow it strictly
+   7
